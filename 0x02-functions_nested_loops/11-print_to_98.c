@@ -1,34 +1,23 @@
-#include "main.h"
-/**
- * print_times_table - prints the n times table
- * @n: number times table (0 < n <= 15)
- * Return: no return
- */
-void print_times_table(int n)
-{
-	int a, b, op;
+#include <stdio.h>
 
-	if (n >= 0 && n <= 15)
+/**
+ * print_to_98 - Prints all natural numbers from input to 98,
+ *               in order separated by a comma followed by a space.
+ * @n: The number to begin counting at.
+ */
+void print_to_98(int n)
 {
-	for (a = 0; a <= n; a++)
-{
-	_putchar (48);
-	for (b = 1; b <= n; b++)
-{
-	op = a * b;
-	_putchar (44);
-	_putchar (32);
-	if (op <= 9)
-{
-	_putchar (32);
-	_putchar (32);
-	_putchar (op + 48);
-}
-	else if (op <= 99)
-{
-	_putchar (32);
-	_putchar ((op / 10) + 48);
-	_putchar ((op % 10) + 48);
-}
+	if (n >= 98)
+	{
+		while (n > 98)
+			printf("%d, ", n--);
+		printf("%d\n", n);
+	}
+
 	else
-{
+	{
+		while (n < 98)
+			printf("%d, ", n++);
+		printf("%d\n", n);
+	}
+}
