@@ -1,34 +1,19 @@
-#include "main.h"
+#include <stdio.h>
 /**
- * print_times_table - prints the n times table
- * @n: number times table (0 < n <= 15)
- * Return: no return
+ * main - prints natural numbers below 1024 that are
+ * multiples of 3 or 5
+ *
+ * Return: Always 0.
  */
-void print_times_table(int n)
+int main(void)
 {
-	int a, b, op;
+	int a, b;
 
-	if (n >= 0 && n <= 15)
+	for (a = 1; a < 1024; a++)
 {
-	for (a = 0; a <= n; a++)
-{
-	_putchar (48);
-	for (b = 1; b <= n; b++)
-{
-	op = a * b;
-	_putchar (44);
-	_putchar (32);
-	if (op <= 9)
-{
-	_putchar (32);
-	_putchar (32);
-	_putchar (op + 48);
+	if ((a % 3) == 0 || (a % 5) == 0)
+	b += a;
 }
-	else if (op <= 99)
-{
-	_putchar (32);
-	_putchar ((op / 10) + 48);
-	_putchar ((op % 10) + 48);
+	printf("%d\n", b);
+	return (0);
 }
-	else
-{
