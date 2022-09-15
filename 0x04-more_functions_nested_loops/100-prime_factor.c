@@ -1,35 +1,39 @@
 #include <stdio.h>
+#include <math.h>
+
 /**
- * main - printing fizz buzz
+ * main - finds and prints the largest prime factor of the number 612852475143
+ * followed by a new line
  * Return: Always 0 (Success)
  */
 int main(void)
 {
-	int x;
+	long int n;
+	long int max;
+	long int i;
 
-	for (x = 1; x <= 100; x++)
+	n = 612852475143;
+	max = -1;
+
+	while (n % 2 == 0)
 	{
-		if (x % 3 == 0 && x % 5 != 0)
+		max = 2;
+		n /= 2;
+	}
+
+	for (i = 3; i <= sqrt(n); i = i + 2)
+	{
+		while (n % i == 0)
 		{
-			printf(" Fizz");
-		}
-		else if (x % 5 == 0 && x % 3 != 0)
-		{
-			printf(" Buzz");
-		}
-		else if (x % 3 == 0 && x % 5 == 0)
-		{
-			printf(" FizzBuzz");
-		}
-		else if (x == 1)
-		{
-			printf("%d", x);
-		}
-		else
-		{
-			printf(" %d", x);
+			max = i;
+			n = n / i;
 		}
 	}
-	printf("\n");
+
+	if (n > 2)
+		max = n;
+
+	printf("%ld\n", max);
+
 	return (0);
 }
